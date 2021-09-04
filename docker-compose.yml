@@ -13,7 +13,7 @@ services:
         - NGINXGROUP=${NGINXGROUP:-www-data}
     container_name: nginx
     ports:
-      - 80:80
+      - 8088:80
     volumes:
       - ./src:/var/www/html:delegated
     depends_on:
@@ -30,14 +30,12 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - 3306:3306
+      - 3366:3306
     environment:
-      MYSQL_DATABASE: homestead
-      MYSQL_USER: homestead
-      MYSQL_PASSWORD: secret
-      MYSQL_ROOT_PASSWORD: secret
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
+      MYSQL_DATABASE: dbcity
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 123
+      MYSQL_ROOT_PASSWORD: 123
     networks:
       - laravel
 
